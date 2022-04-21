@@ -17,7 +17,7 @@ class MyNet(nn.Module):
         x = self.conv_layer2(x)
         x = F.relu(x)
         x = self.pool(x)
-        x = x.view(4, 16 * 16)
+        x = x.view(-1, 16 * 16)
         x = F.relu(self.linear_layer1(x))
         x = F.relu(self.linear_layer2(x))
         return x

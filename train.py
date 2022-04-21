@@ -9,7 +9,7 @@ from cnn_net import MyNet
 num_classes = 10
 num_epochs = 2
 learning_rate = 0.001
-batch_size = 64
+batch_size = 4
 
 # Transform each image into tensor
 transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize([0.5], [0.5])])
@@ -32,7 +32,7 @@ label_dic = {
 	9 : "Ankle boot"
 }
 
-# put my data to batch (64 images in each batch)
+# put my data to batch (4 images in each batch)
 train_loader = torch.utils.data.DataLoader(train_data, batch_size=batch_size, shuffle=True)
 test_loader = torch.utils.data.DataLoader(test_data, batch_size=batch_size, shuffle=False)
 
