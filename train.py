@@ -9,7 +9,7 @@ from cnn_net import MyNet
 num_classes = 10
 num_epochs = 2
 learning_rate = 0.001
-batch_size = 4
+batch_size = 64
 
 # Transform each image into tensor
 transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize([0.5], [0.5])])
