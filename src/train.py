@@ -1,4 +1,6 @@
+from omegaconf import DictConfig
 import torch
+import hydra
 from torchvision import datasets, transforms
 import torch.nn as nn
 import torch.nn.functional as F
@@ -6,10 +8,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 from cnn_net import MyNet
 
-num_classes = 10
 num_epochs = 2
 learning_rate = 0.001
 batch_size = 4
+num_classes = 10
+FILE = "save/my_model.txt"
 
 # Transform each image into tensor
 transform = transforms.Compose([transforms.ToTensor(), transforms.Normalize([0.5], [0.5])])
@@ -79,14 +82,6 @@ with torch.no_grad():
     acc = 100.0 * n_correct / n_samples
     print(f'Accuracy of the network on the 10000 test images: {acc} %')
 
-examples = iter(test_loader)
-example_data, example_targets = examples.next()
-
-output = model(example_data)
-_, pred = torch.max(output.data, 1)
-for i in range(batch_size):
-    plt.subplot(2,3, i + 1)
-    int_pred = int(pred[i])
-    plt.title(label_dic[int_pred])
-    plt.imshow(example_data[i][0], cmap='gray')
-plt.show()
+# Save my model
+torch.save(model.state_dict(), FILE)
+print("Model saved")
