@@ -42,7 +42,8 @@
 An AI made with PyTorch in Python capable of recognizing clothes.
 
 
-Use the `python train.py` to start training the model.
+Use `python train.py` to start training the model.
+And then `python recognize_clothes.py` to test the model.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 

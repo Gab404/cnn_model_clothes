@@ -1,6 +1,4 @@
-from omegaconf import DictConfig
 import torch
-import hydra
 from torchvision import datasets, transforms
 import torch.nn as nn
 import torch.nn.functional as F
